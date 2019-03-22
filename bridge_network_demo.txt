@@ -1,0 +1,22 @@
+1.Create python app , write docker file and build it
+
+Note:Before build you must have following files on pwd
+#ls
+app.py  
+Dockerfile 
+requirements.txt
+
+#docker build -t skkp/pyapp .
+
+2.To List network
+#docker network ls     or     #docker network list
+
+
+3.To create custom bridge network
+# docker network create --driver=bridge pyapp
+
+4.Create two container on same network
+#docker run -d --name=redis --network=pyapp redis
+#docker run -d -p 80:5000 --name=python --network=pyapp skkp/pyapp
+
+5.Access that <docker host ip:80> on web browser you will get responce.
